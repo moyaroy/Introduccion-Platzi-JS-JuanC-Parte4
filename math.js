@@ -45,3 +45,28 @@ function calculoCuadrado(lado){
         perimetro: lado*4,
         area: lado*lado    }
 }
+
+console.group('CIRCLES')
+
+const radioCirculo=3
+const diametroCirculo=radioCirculo*2
+const PI=Math.PI
+const circnferencia=2*radioCirculo*PI
+const AreaCirculo=PI*(radioCirculo**2)
+
+console.log({
+    radioCirculo,
+    diametroCirculo,
+    PI,
+    circnferencia,
+    AreaCirculo
+})
+
+function calcularCirculo(radioCirculo){
+    return{
+        circunferencia: radioCirculo*2*PI,
+        areaCirculo: Math.pow(radioCirculo,2)*PI
+    }
+}
+console.groupEnd('CIRCLES')
+
