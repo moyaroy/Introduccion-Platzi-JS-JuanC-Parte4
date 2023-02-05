@@ -11,6 +11,13 @@ console.log({
     perimetroCuadrado,
     areaCuadrado,
 })
+
+
+function calculoCuadrado(lado){
+    return{
+        perimetro: lado*4,
+        area: lado*lado    }
+}
 console.groupEnd('CUADRADO')
 
 console.group('TRIANGULO')
@@ -31,8 +38,6 @@ console.log({
     areaTriangulo,
 })
 
-console.groupEnd('TRIANGULO')
-
 function calculoTriagulo(lado1,lado2,base,altura){
     return{
         perimetro: lado1+lado2+base+base,
@@ -40,11 +45,19 @@ function calculoTriagulo(lado1,lado2,base,altura){
     }
 }
 
-function calculoCuadrado(lado){
-    return{
-        perimetro: lado*4,
-        area: lado*lado    }
+function calcularAlturaTriangulo(ladosEquivalentes,base){
+    if(ladosEquivalentes==base){
+        console.warn('Este no es un triángulo isoceles')
+    } else {
+        //h= raizcuadrada(ladoEquivalentes**2 - (base**2)4)
+        return Math.sqrt((ladosEquivalentes**2-(base**2)/4))
+    }
 }
+
+console.groupEnd('TRIANGULO')
+
+
+
 
 console.group('CIRCLES')
 
