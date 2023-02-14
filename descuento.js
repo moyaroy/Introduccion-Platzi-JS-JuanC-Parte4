@@ -23,6 +23,7 @@ function calculoDescuento(){
     } 
     if(!descuentoParaAplicar){
         pDescuentTotal.innerHTML="Cupón no encontrado."
+        return
     }
     else{
     const precioFinal= ((precioInicial)*(100-descuentoParaAplicar.Descuento))/100;
@@ -30,4 +31,4 @@ function calculoDescuento(){
     console.log(precioFinal);
     }
     
-}
+} 
