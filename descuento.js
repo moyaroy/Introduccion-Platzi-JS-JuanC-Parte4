@@ -5,18 +5,29 @@ const pDescuentTotal=document.querySelector('#pPrecioFinal')
 const btnCalcularDescuento=document.querySelector('#btnCalcularDescuento');
 btnCalcularDescuento.addEventListener('click',calculoDescuento)
 
+let cuponesDescuento=[
+    {nombre:"ABC",Descuento:20},
+    {nombre:"DEF",Descuento:60},
+    {nombre:"GHI",Descuento:80},
+    {nombre:"JKL",Descuento:10}
+]
+
+
 function calculoDescuento(){
     precioInicial=inputPrecio.value;
-    descuento=inputDescuento.value;
+    descuentoParaAplicar=cuponesDescuento.find(cuponesDescuento=>cuponesDescuento.nombre==inputDescuento.value)
 
-    if (!precioInicial || !descuento){
+
+    if (!precioInicial || !descuentoParaAplicar){
         pDescuentTotal.innerHTML="Insertar valores"
     } 
-    if (descuento >100) {
-        pDescuentTotal.innerHTML="No aplica descuento más de 100%"
-    } else{
-
-    const precioFinal= ((precioInicial)*(100-descuento.value))/100;
-    pDescuentTotal.innerHTML=precioFinal
+    if(!descuentoParaAplicar){
+        pDescuentTotal.innerHTML="Cupón no encontrado."
     }
+    else{
+    const precioFinal= ((precioInicial)*(100-descuentoParaAplicar.Descuento))/100;
+    pDescuentTotal.innerHTML=precioFinal
+    console.log(precioFinal);
+    }
+    
 }
